@@ -4,6 +4,8 @@ import pygame
 WIDTH = 700
 HEIGHT = 700
 FPS = 60
+start_x = 600
+start_y = 500
 
 # Задаем цвета
 WHITE = (255, 255, 255)
@@ -16,7 +18,7 @@ BLUE = (0, 0, 255)
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((100, 10))
+        self.image = pygame.Surface((1000, 10))
         self.image.fill(GREEN)
         self.rect = self.image.get_rect()
         self.rect.center = (WIDTH / 2, HEIGHT - 50)
@@ -42,17 +44,19 @@ class Ball(pygame.sprite.Sprite):
         self.image.fill(GREEN)
         self.rect = self.image.get_rect()
         self.rect.center = (WIDTH / 2, HEIGHT / 2)
-        self.rect.x = player.rect.x + 49
-        self.rect.y = player.rect.y - 10
+        # self.rect.x = player.rect.x + 49
+        # self.rect.y = player.rect.y - 10
+        # self.rect.x = 360
+        # self.rect.y = 360
 
     x = 1
     y = 1
 
     def update(self):
         global speed
-        if 'count' not in globals():
-            global count
-            count = 0
+        if 'if_active' not in globals():
+            global if_active
+            if_active = 0
         if 'x' not in globals():
             global x
             global y
@@ -60,35 +64,46 @@ class Ball(pygame.sprite.Sprite):
             x = speed
             y = speed
         keystat = pygame.key.get_pressed()
-        if keystat[pygame.K_UP] and count == 0:
-            speed = 2
+        if keystat[pygame.K_UP] and if_active == 0:
+            speed = 1
             x = speed
             y = -speed
-            count = 1
+            if_active = 1
+        if keystat[pygame.K_DOWN]:
+            if_active = 0
+            self.rect.x = player.rect.x + 49
+            self.rect.y = player.rect.y - 10
+            # self.rect.x = start_x
+            # self.rect.y = start_y
         if self.rect.x > WIDTH - 2:
             x = -speed
         if self.rect.x < 2 :
             x = speed
         if self.rect.y > HEIGHT - 2:
             speed = 0
-            count = 0
-            self.rect.x = player.rect.x + 49
-            self.rect.y = player.rect.y - 10
+            if_active = 0
             x = 0
             y = 0
+        if if_active == 0:
+            self.rect.x = player.rect.x + 49
+            self.rect.y = player.rect.y - 10
+            # self.rect.x = start_x
+            # self.rect.y = start_y
         if self.rect.y < 2:
             y = speed
         if pygame.sprite.spritecollideany(player, ball_sprite):
             y = -speed
         if pygame.sprite.spritecollide(ball, block_sprite, True):
-            m = min(abs(ball.rect.y - block.rect.top),
-                    abs(ball.rect.x - block.rect.right),
-                    abs(ball.rect.x - block.rect.left),
-                    abs(ball.rect.y - block.rect.bottom))
-            if m == abs(ball.rect.y - block.rect.top) or m == abs(ball.rect.y - block.rect.bottom):
-                y = -y
-            elif m == abs(ball.rect.x - block.rect.right) or m == abs(ball.rect.x - block.rect.left):
-                x = -x
+            a = abs(ball.rect.bottom - blocks[self.rect.x // 42][self.rect.y // 40].rect.top) % 40
+            b = abs(ball.rect.left - blocks[self.rect.x // 42][self.rect.y // 40].rect.right) % 42
+            c = abs(ball.rect.right - blocks[self.rect.x // 42][self.rect.y // 40].rect.left) % 42
+            d = abs(ball.rect.top - blocks[self.rect.x // 42][self.rect.y // 40].rect.bottom) % 40
+            m = min(a, b, c, d)
+            if not(a == 1 and b == 1) and not(a == 1 and c == 1) and not(d == 1 and b == 1) and not(d == 1 and c == 1):
+                if m == a or m == d:
+                    y = -y
+                elif m == b or m == c:
+                    x = -x
 
         self.rect.x += x
         self.rect.y += y
@@ -118,13 +133,20 @@ all_sprites.add(player)
 all_sprites.add(ball)
 ball_sprite.add(ball)
 
+blocks = [[Block() for j in range(10)] for i in range(17)]
 for i in range(17):
     for j in range(10):
-        block = Block()
-        block.rect.x = 2 + 41*i
-        block.rect.y = 2 + 40*j
-        all_sprites.add(block)
-        block_sprite.add(block)
+        # blocks[i][j] = Block()
+        blocks[i][j].rect.x = 42*i
+        blocks[i][j].rect.y = 40*j
+        all_sprites.add(blocks[i][j])
+        block_sprite.add(blocks[i][j])
+
+# block = Block()
+# block.rect.x = 350
+# block.rect.y = 350
+# all_sprites.add(block)
+# block_sprite.add(block)
 
 # Цикл игры
 running = True
