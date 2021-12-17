@@ -18,7 +18,7 @@ BLUE = (0, 0, 255)
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface((1000, 10))
+        self.image = pygame.Surface((100, 10))
         self.image.fill(GREEN)
         self.rect = self.image.get_rect()
         self.rect.center = (WIDTH / 2, HEIGHT - 50)
@@ -65,7 +65,7 @@ class Ball(pygame.sprite.Sprite):
             y = speed
         keystat = pygame.key.get_pressed()
         if keystat[pygame.K_UP] and if_active == 0:
-            speed = 1
+            speed = 2
             x = speed
             y = -speed
             if_active = 1
