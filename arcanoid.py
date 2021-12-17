@@ -1,18 +1,27 @@
 import pygame
 
 
-def make_blocks(Block, sprites):
-    blocks = [[Block() for j in range(10)] for i in range(17)]
+def make_blocks(block):
+    """Making blocks
+
+    Makes matrix of blocks and adds it to all and block sprites groups
+    :param block: block sprite
+    :return: objects of block sprite
+    """
+    blocks = [[block() for j in range(10)] for i in range(17)]
     for i in range(17):
         for j in range(10):
             blocks[i][j].rect.x = 42 * i
             blocks[i][j].rect.y = 40 * j
-            sprites['all_sprites'].add(blocks[i][j])
-            sprites['block_sprite'].add(blocks[i][j])
     return blocks
 
 
 def update_player(self, default_parameters):
+    """Updating player's platform location
+
+    :param self: player sprite
+    :param default_parameters: parameters of game configuration
+    """
     self.speedx = 0
     keye = pygame.key.get_pressed()
     if keye[pygame.K_LEFT]:
@@ -24,10 +33,22 @@ def update_player(self, default_parameters):
         self.rect.right = 0
     if self.rect.right < 0:
         self.rect.left = default_parameters['width']
-    return self
 
 
 def rebound_frames(i, j, x, y, speed, is_active, default_parameters):
+    """Rebound from frames rules
+
+    Changes direction of movement of the ball if it touches one of the frames and stop the game
+    if ball touched bottom frame
+    :param i: Ox ball coordinate
+    :param j: Oy ball coordinate
+    :param x: Ox axis speed of the ball
+    :param y: Oy axis speed of the ball
+    :param speed: default speed of ball
+    :param is_active: says if the game has to be continued
+    :param default_parameters: parameters of game configuration
+    :return: new Ox and Oy axis speed and answer if the game has to be continued
+    """
     if i > default_parameters['width'] - 2:
         x = -speed
     if i < 2:
@@ -38,29 +59,37 @@ def rebound_frames(i, j, x, y, speed, is_active, default_parameters):
         is_active = 0
         x = 0
         y = 0
-    return x, y, is_active, speed
+    return x, y, is_active
 
 
 def activate_check(is_active, i_player, j_player, i_ball, j_ball):
+    """Activated check
+
+    Checks if the game has to be continued and return ball to the player's platform if not
+    :param is_active: says if the game has to be continued
+    :param i_player: Ox player's platform coordinate
+    :param j_player: Oy player's platform coordinate
+    :param i_ball: Ox ball coordinate
+    :param j_ball: Oy ball coordinate
+    :return: new Ox and Oy coordinates for the ball
+    """
     if is_active == 0:
         i_ball = i_player + 49
         j_ball = j_player - 10
     return i_ball, j_ball
 
 
-def activating(i_ball, j_ball, par1, par2, is_active, speed, x, y):
+def activating(par1, par2, is_active, speed, x, y):
     """Game activating
 
     Activate game or stop it after pressing buttons of start and stop
-    :param i_ball:
-    :param j_ball:
-    :param par1:
-    :param par2:
-    :param is_active:
-    :param speed:
-    :param x:
-    :param y:
-    :return:
+    :param par1: is start button was pressed
+    :param par2: is stop button was pressed
+    :param is_active: says if the game has to be continued
+    :param speed: default speed of ball
+    :param x: Ox axis speed of the ball
+    :param y: Oy axis speed of the ball
+    :return: Ox and Oy axis speed of the ball and answer if the game has to be continued
     """
     if par1 and is_active == 0:
         x = speed
@@ -68,11 +97,11 @@ def activating(i_ball, j_ball, par1, par2, is_active, speed, x, y):
         is_active = 1
     if par2:
         is_active = 0
-    return x, y, is_active, i_ball, j_ball
+    return x, y, is_active
 
 
 def rebound_player(speed, local_parameter, y):
-    """Rebound from player platform rules
+    """Rebound from player's platform rules
 
     Changes direction of movement of the ball if it touches the player's platform
     :param speed: default speed of ball
@@ -127,7 +156,6 @@ def update_ball(self, player, default_parameters, sprites, blocks):
     :param default_parameters: parameters of game configuration
     :param sprites: groups of sprites
     :param blocks: list of blocks sprites
-    :return: 
     """
     global is_active
     global speed
@@ -135,9 +163,8 @@ def update_ball(self, player, default_parameters, sprites, blocks):
     global y
     key = pygame.key.get_pressed()
 
-    x, y, is_active, self.rect.x, self.rect.y = activating(self.rect.x, self.rect.y,
-                                                           key[pygame.K_UP], key[pygame.K_DOWN], is_active, speed, x, y)
-    x, y, is_active, speed = rebound_frames(self.rect.x, self.rect.y, x, y, speed, is_active, default_parameters)
+    x, y, is_active= activating(key[pygame.K_UP], key[pygame.K_DOWN], is_active, speed, x, y)
+    x, y, is_active = rebound_frames(self.rect.x, self.rect.y, x, y, speed, is_active, default_parameters)
     self.rect.x, self.rect.y = activate_check(is_active, player.rect.x, player.rect.y, self.rect.x, self.rect.y)
     y = rebound_player(speed, pygame.sprite.spritecollideany(player, sprites['ball_sprite']), y)
     if self.rect.x // 42 < 17 and self.rect.y // 40 < 10:
@@ -180,7 +207,7 @@ def classes(default_parameters, sprites):
             self.image.fill(default_parameters['green'])
             self.rect = self.image.get_rect()
             self.rect.center = (default_parameters['width'] / 2, default_parameters['height'] / 2)
-    blocks = make_blocks(Block, sprites)
+    blocks = make_blocks(Block)
     sprites['all_sprites'].add(blocks)
     sprites['block_sprite'].add(blocks)
 
