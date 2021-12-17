@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>arcanoid API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>arcanoid</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import pygame
+
+
+def make_blocks(block):
+    &#34;&#34;&#34;Making blocks
+
+    Makes matrix of blocks and adds it to all and block sprites groups
+    :param block: block sprite
+    :return: objects of block sprite
+    &#34;&#34;&#34;
+    blocks = [[block() for j in range(10)] for i in range(17)]
+    for i in range(17):
+        for j in range(10):
+            blocks[i][j].rect.x = 42 * i
+            blocks[i][j].rect.y = 40 * j
+    return blocks
+
+
+def update_player(self, default_parameters):
+    &#34;&#34;&#34;Updating player&#39;s platform location
+
+    :param self: player sprite
+    :param default_parameters: parameters of game configuration
+    &#34;&#34;&#34;
+    self.speedx = 0
+    keye = pygame.key.get_pressed()
+    if keye[pygame.K_LEFT]:
+        self.speedx = -8
+    if keye[pygame.K_RIGHT]:
+        self.speedx = 8
+    self.rect.x += self.speedx
+    if self.rect.left &gt; default_parameters[&#39;width&#39;]:
+        self.rect.right = 0
+    if self.rect.right &lt; 0:
+        self.rect.left = default_parameters[&#39;width&#39;]
+
+
+def rebound_frames(i, j, x, y, speed, is_active, default_parameters):
+    &#34;&#34;&#34;Rebound from frames rules
+
+    Changes direction of movement of the ball if it touches one of the frames and stop the game
+    if ball touched bottom frame
+    :param i: Ox ball coordinate
+    :param j: Oy ball coordinate
+    :param x: Ox axis speed of the ball
+    :param y: Oy axis speed of the ball
+    :param speed: default speed of ball
+    :param is_active: says if the game has to be continued
+    :param default_parameters: parameters of game configuration
+    :return: new Ox and Oy axis speed and answer if the game has to be continued
+    &#34;&#34;&#34;
+    if i &gt; default_parameters[&#39;width&#39;] - 2:
+        x = -speed
+    if i &lt; 2:
+        x = speed
+    if j &lt; 2:
+        y = speed
+    if j &gt; default_parameters[&#39;height&#39;] - 2:
+        is_active = 0
+        x = 0
+        y = 0
+    return x, y, is_active
+
+
+def activate_check(is_active, i_player, j_player, i_ball, j_ball):
+    &#34;&#34;&#34;Activated check
+
+    Checks if the game has to be continued and return ball to the player&#39;s platform if not
+    :param is_active: says if the game has to be continued
+    :param i_player: Ox player&#39;s platform coordinate
+    :param j_player: Oy player&#39;s platform coordinate
+    :param i_ball: Ox ball coordinate
+    :param j_ball: Oy ball coordinate
+    :return: new Ox and Oy coordinates for the ball
+    &#34;&#34;&#34;
+    if is_active == 0:
+        i_ball = i_player + 49
+        j_ball = j_player - 10
+    return i_ball, j_ball
+
+
+def activating(par1, par2, is_active, speed, x, y):
+    &#34;&#34;&#34;Game activating
+
+    Activate game or stop it after pressing buttons of start and stop
+    :param par1: is start button was pressed
+    :param par2: is stop button was pressed
+    :param is_active: says if the game has to be continued
+    :param speed: default speed of ball
+    :param x: Ox axis speed of the ball
+    :param y: Oy axis speed of the ball
+    :return: Ox and Oy axis speed of the ball and answer if the game has to be continued
+    &#34;&#34;&#34;
+    if par1 and is_active == 0:
+        x = speed
+        y = -speed
+        is_active = 1
+    if par2:
+        is_active = 0
+    return x, y, is_active
+
+
+def rebound_player(speed, local_parameter, y):
+    &#34;&#34;&#34;Rebound from player&#39;s platform rules
+
+    Changes direction of movement of the ball if it touches the player&#39;s platform
+    :param speed: default speed of ball
+    :param local_parameter: is ball touched the platform
+    :param y: Oy axis speed of the ball
+    :return: new Oy axis speed of the ball
+    &#34;&#34;&#34;
+    if local_parameter:
+        y = -speed
+    return y
+
+
+def rebound_block(ball_bottom, ball_left, ball_right, ball_top, block_top, block_right, block_left, block_bottom,
+                  local_parameter, x, y):
+    &#34;&#34;&#34;Rebound from blocks rules
+
+    Changes direction of movement of the ball if it touches a block and delete the block
+    :param ball_bottom: coordinates of the bottom of the ball
+    :param ball_left: coordinates of the left edge of the ball
+    :param ball_right: coordinates of thr right edge of the ball
+    :param ball_top: coordinates of the top of the ball
+    :param block_top: coordinates of the top of the block
+    :param block_right: coordinates of the right edge of the block
+    :param block_left: coordinates of the left edge of the block
+    :param block_bottom: coordinates of the bottom of the bloock
+    :param local_parameter: is ball touched a block
+    :param x: Ox axis speed of the ball
+    :param y: Oy axis speed of the ball
+    :return: new Ox and Oy axis speed for the ball
+    &#34;&#34;&#34;
+    if local_parameter:
+        a = abs(ball_bottom - block_top) % 40
+        b = abs(ball_left - block_right) % 42
+        c = abs(ball_right - block_left) % 42
+        d = abs(ball_top - block_bottom) % 40
+        m = min(a, b, c, d)
+        if not (a == 1 and b == 1) and not (a == 1 and c == 1) and not (d == 1 and b == 1) and not (
+                d == 1 and c == 1):
+            if m == a or m == d:
+                y = -y
+            elif m == b or m == c:
+                x = -x
+    return x, y
+
+
+def update_ball(self, player, default_parameters, sprites, blocks):
+    &#34;&#34;&#34;Updating ball location
+
+    Contains rules of ball movement
+    :param self: ball sprite
+    :param player: player sprite
+    :param default_parameters: parameters of game configuration
+    :param sprites: groups of sprites
+    :param blocks: list of blocks sprites
+    &#34;&#34;&#34;
+    global is_active
+    global speed
+    global x
+    global y
+    key = pygame.key.get_pressed()
+
+    x, y, is_active= activating(key[pygame.K_UP], key[pygame.K_DOWN], is_active, speed, x, y)
+    x, y, is_active = rebound_frames(self.rect.x, self.rect.y, x, y, speed, is_active, default_parameters)
+    self.rect.x, self.rect.y = activate_check(is_active, player.rect.x, player.rect.y, self.rect.x, self.rect.y)
+    y = rebound_player(speed, pygame.sprite.spritecollideany(player, sprites[&#39;ball_sprite&#39;]), y)
+    if self.rect.x // 42 &lt; 17 and self.rect.y // 40 &lt; 10:
+        x, y = rebound_block(self.rect.bottom, self.rect.left, self.rect.right, self.rect.top,
+                             blocks[self.rect.x // 42][self.rect.y // 40].rect.top,
+                             blocks[self.rect.x // 42][self.rect.y // 40].rect.right,
+                             blocks[self.rect.x // 42][self.rect.y // 40].rect.left,
+                             blocks[self.rect.x // 42][self.rect.y // 40].rect.bottom,
+                             pygame.sprite.spritecollide(self, sprites[&#39;block_sprite&#39;], True), x, y)
+
+    self.rect.x += x
+    self.rect.y += y
+
+
+def classes(default_parameters, sprites):
+    &#34;&#34;&#34;Makes game objects
+
+    Makes sprites attending the game
+    :param default_parameters: parameters of game configuration
+    :param sprites: groups of sprites
+    :return: groups of sprites with added object in it
+    &#34;&#34;&#34;
+    class Player(pygame.sprite.Sprite):
+        def __init__(self):
+            pygame.sprite.Sprite.__init__(self)
+            self.image = pygame.Surface((100, 10))
+            self.image.fill(default_parameters[&#39;green&#39;])
+            self.rect = self.image.get_rect()
+            self.rect.center = (default_parameters[&#39;width&#39;] / 2, default_parameters[&#39;height&#39;] - 50)
+
+        def update(self):
+            update_player(self, default_parameters)
+    player = Player()
+    sprites[&#39;all_sprites&#39;].add(player)
+
+    class Block(pygame.sprite.Sprite):
+        def __init__(self):
+            pygame.sprite.Sprite.__init__(self)
+            self.image = pygame.Surface((30, 30))
+            self.image.fill(default_parameters[&#39;green&#39;])
+            self.rect = self.image.get_rect()
+            self.rect.center = (default_parameters[&#39;width&#39;] / 2, default_parameters[&#39;height&#39;] / 2)
+    blocks = make_blocks(Block)
+    sprites[&#39;all_sprites&#39;].add(blocks)
+    sprites[&#39;block_sprite&#39;].add(blocks)
+
+    class Ball(pygame.sprite.Sprite):
+        def __init__(self):
+            pygame.sprite.Sprite.__init__(self)
+            self.image = pygame.Surface((5, 5))
+            self.image.fill(default_parameters[&#39;green&#39;])
+            self.rect = self.image.get_rect()
+            self.rect.center = (default_parameters[&#39;width&#39;] / 2, default_parameters[&#39;height&#39;] / 2)
+
+        def update(self):
+            update_ball(self, player, default_parameters, sprites, blocks)
+    ball = Ball()
+    sprites[&#39;all_sprites&#39;].add(ball)
+    sprites[&#39;ball_sprite&#39;].add(ball)
+
+    return sprites
+
+
+def main_parameters():
+    &#34;&#34;&#34;Set parameters
+
+    Contains parameters of game configuration
+    :return: parameters of game configuration
+    &#34;&#34;&#34;
+    global default_parameters
+    global speed
+    global is_active
+    global x
+    global y
+    default_parameters = {
+        &#39;width&#39;: 700,
+        &#39;height&#39;: 700,
+        &#39;FPS&#39;: 60,
+        &#39;white&#39;: (255, 255, 255),
+        &#39;black&#39;: (0, 0, 0),
+        &#39;red&#39;: (255, 0, 0),
+        &#39;green&#39;: (10, 186, 181),
+        &#39;blue&#39;: (0, 0, 255),
+        &#39;speed&#39;: 3,
+        &#39;is_active&#39;: 0,
+        &#39;x&#39;: 0,
+        &#39;y&#39;: 0
+    }
+    speed = default_parameters[&#39;speed&#39;]
+    is_active = default_parameters[&#39;is_active&#39;]
+    x = default_parameters[&#39;x&#39;]
+    y = default_parameters[&#39;y&#39;]
+    return default_parameters
+
+
+def make_sprites():
+    &#34;&#34;&#34;Sprites making
+
+    Makes all used groups of sprites
+    :return: groups of sprites
+    &#34;&#34;&#34;
+    sprites = {
+        &#39;all_sprites&#39;: pygame.sprite.Group(),
+        &#39;ball_sprite&#39;: pygame.sprite.Group(),
+        &#39;block_sprite&#39;: pygame.sprite.Group()
+    }
+    return sprites
+
+
+def main():
+    &#34;&#34;&#34;Run function&#34;&#34;&#34;
+    default_parameters = main_parameters()
+    sprites = classes(default_parameters, make_sprites())
+    
+    pygame.init()
+    pygame.mixer.init()
+    screen = pygame.display.set_mode((default_parameters[&#39;width&#39;], default_parameters[&#39;height&#39;]))
+    pygame.display.set_caption(&#34;Acranoid&#34;)
+    clock = pygame.time.Clock()
+
+    running = True
+    while running:
+        clock.tick(default_parameters[&#39;FPS&#39;])
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+        sprites[&#39;all_sprites&#39;].update()
+
+        screen.fill(default_parameters[&#39;black&#39;])
+        sprites[&#39;all_sprites&#39;].draw(screen)
+        pygame.display.flip()
+
+    pygame.quit()
+
+
+if __name__ == &#34;__main__&#34;:
+    main()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="arcanoid.activate_check"><code class="name flex">
+<span>def <span class="ident">activate_check</span></span>(<span>is_active, i_player, j_player, i_ball, j_ball)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Activated check</p>
+<p>Checks if the game has to be continued and return ball to the player's platform if not
+:param is_active: says if the game has to be continued
+:param i_player: Ox player's platform coordinate
+:param j_player: Oy player's platform coordinate
+:param i_ball: Ox ball coordinate
+:param j_ball: Oy ball coordinate
+:return: new Ox and Oy coordinates for the ball</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def activate_check(is_active, i_player, j_player, i_ball, j_ball):
+    &#34;&#34;&#34;Activated check
+
+    Checks if the game has to be continued and return ball to the player&#39;s platform if not
+    :param is_active: says if the game has to be continued
+    :param i_player: Ox player&#39;s platform coordinate
+    :param j_player: Oy player&#39;s platform coordinate
+    :param i_ball: Ox ball coordinate
+    :param j_ball: Oy ball coordinate
+    :return: new Ox and Oy coordinates for the ball
+    &#34;&#34;&#34;
+    if is_active == 0:
+        i_ball = i_player + 49
+        j_ball = j_player - 10
+    return i_ball, j_ball</code></pre>
+</details>
+</dd>
+<dt id="arcanoid.activating"><code class="name flex">
+<span>def <span class="ident">activating</span></span>(<span>par1, par2, is_active, speed, x, y)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Game activating</p>
+<p>Activate game or stop it after pressing buttons of start and stop
+:param par1: is start button was pressed
+:param par2: is stop button was pressed
+:param is_active: says if the game has to be continued
+:param speed: default speed of ball
+:param x: Ox axis speed of the ball
+:param y: Oy axis speed of the ball
+:return: Ox and Oy axis speed of the ball and answer if the game has to be continued</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def activating(par1, par2, is_active, speed, x, y):
+    &#34;&#34;&#34;Game activating
+
+    Activate game or stop it after pressing buttons of start and stop
+    :param par1: is start button was pressed
+    :param par2: is stop button was pressed
+    :param is_active: says if the game has to be continued
+    :param speed: default speed of ball
+    :param x: Ox axis speed of the ball
+    :param y: Oy axis speed of the ball
+    :return: Ox and Oy axis speed of the ball and answer if the game has to be continued
+    &#34;&#34;&#34;
+    if par1 and is_active == 0:
+        x = speed
+        y = -speed
+        is_active = 1
+    if par2:
+        is_active = 0
+    return x, y, is_active</code></pre>
+</details>
+</dd>
+<dt id="arcanoid.classes"><code class="name flex">
+<span>def <span class="ident">classes</span></span>(<span>default_parameters, sprites)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Makes game objects</p>
+<p>Makes sprites attending the game
+:param default_parameters: parameters of game configuration
+:param sprites: groups of sprites
+:return: groups of sprites with added object in it</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def classes(default_parameters, sprites):
+    &#34;&#34;&#34;Makes game objects
+
+    Makes sprites attending the game
+    :param default_parameters: parameters of game configuration
+    :param sprites: groups of sprites
+    :return: groups of sprites with added object in it
+    &#34;&#34;&#34;
+    class Player(pygame.sprite.Sprite):
+        def __init__(self):
+            pygame.sprite.Sprite.__init__(self)
+            self.image = pygame.Surface((100, 10))
+            self.image.fill(default_parameters[&#39;green&#39;])
+            self.rect = self.image.get_rect()
+            self.rect.center = (default_parameters[&#39;width&#39;] / 2, default_parameters[&#39;height&#39;] - 50)
+
+        def update(self):
+            update_player(self, default_parameters)
+    player = Player()
+    sprites[&#39;all_sprites&#39;].add(player)
+
+    class Block(pygame.sprite.Sprite):
+        def __init__(self):
+            pygame.sprite.Sprite.__init__(self)
+            self.image = pygame.Surface((30, 30))
+            self.image.fill(default_parameters[&#39;green&#39;])
+            self.rect = self.image.get_rect()
+            self.rect.center = (default_parameters[&#39;width&#39;] / 2, default_parameters[&#39;height&#39;] / 2)
+    blocks = make_blocks(Block)
+    sprites[&#39;all_sprites&#39;].add(blocks)
+    sprites[&#39;block_sprite&#39;].add(blocks)
+
+    class Ball(pygame.sprite.Sprite):
+        def __init__(self):
+            pygame.sprite.Sprite.__init__(self)
+            self.image = pygame.Surface((5, 5))
+            self.image.fill(default_parameters[&#39;green&#39;])
+            self.rect = self.image.get_rect()
+            self.rect.center = (default_parameters[&#39;width&#39;] / 2, default_parameters[&#39;height&#39;] / 2)
+
+        def update(self):
+            update_ball(self, player, default_parameters, sprites, blocks)
+    ball = Ball()
+    sprites[&#39;all_sprites&#39;].add(ball)
+    sprites[&#39;ball_sprite&#39;].add(ball)
+
+    return sprites</code></pre>
+</details>
+</dd>
+<dt id="arcanoid.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Run function</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main():
+    &#34;&#34;&#34;Run function&#34;&#34;&#34;
+    default_parameters = main_parameters()
+    sprites = classes(default_parameters, make_sprites())
+    
+    pygame.init()
+    pygame.mixer.init()
+    screen = pygame.display.set_mode((default_parameters[&#39;width&#39;], default_parameters[&#39;height&#39;]))
+    pygame.display.set_caption(&#34;Acranoid&#34;)
+    clock = pygame.time.Clock()
+
+    running = True
+    while running:
+        clock.tick(default_parameters[&#39;FPS&#39;])
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+        sprites[&#39;all_sprites&#39;].update()
+
+        screen.fill(default_parameters[&#39;black&#39;])
+        sprites[&#39;all_sprites&#39;].draw(screen)
+        pygame.display.flip()
+
+    pygame.quit()</code></pre>
+</details>
+</dd>
+<dt id="arcanoid.main_parameters"><code class="name flex">
+<span>def <span class="ident">main_parameters</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set parameters</p>
+<p>Contains parameters of game configuration
+:return: parameters of game configuration</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main_parameters():
+    &#34;&#34;&#34;Set parameters
+
+    Contains parameters of game configuration
+    :return: parameters of game configuration
+    &#34;&#34;&#34;
+    global default_parameters
+    global speed
+    global is_active
+    global x
+    global y
+    default_parameters = {
+        &#39;width&#39;: 700,
+        &#39;height&#39;: 700,
+        &#39;FPS&#39;: 60,
+        &#39;white&#39;: (255, 255, 255),
+        &#39;black&#39;: (0, 0, 0),
+        &#39;red&#39;: (255, 0, 0),
+        &#39;green&#39;: (10, 186, 181),
+        &#39;blue&#39;: (0, 0, 255),
+        &#39;speed&#39;: 3,
+        &#39;is_active&#39;: 0,
+        &#39;x&#39;: 0,
+        &#39;y&#39;: 0
+    }
+    speed = default_parameters[&#39;speed&#39;]
+    is_active = default_parameters[&#39;is_active&#39;]
+    x = default_parameters[&#39;x&#39;]
+    y = default_parameters[&#39;y&#39;]
+    return default_parameters</code></pre>
+</details>
+</dd>
+<dt id="arcanoid.make_blocks"><code class="name flex">
+<span>def <span class="ident">make_blocks</span></span>(<span>block)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Making blocks</p>
+<p>Makes matrix of blocks and adds it to all and block sprites groups
+:param block: block sprite
+:return: objects of block sprite</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def make_blocks(block):
+    &#34;&#34;&#34;Making blocks
+
+    Makes matrix of blocks and adds it to all and block sprites groups
+    :param block: block sprite
+    :return: objects of block sprite
+    &#34;&#34;&#34;
+    blocks = [[block() for j in range(10)] for i in range(17)]
+    for i in range(17):
+        for j in range(10):
+            blocks[i][j].rect.x = 42 * i
+            blocks[i][j].rect.y = 40 * j
+    return blocks</code></pre>
+</details>
+</dd>
+<dt id="arcanoid.make_sprites"><code class="name flex">
+<span>def <span class="ident">make_sprites</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sprites making</p>
+<p>Makes all used groups of sprites
+:return: groups of sprites</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def make_sprites():
+    &#34;&#34;&#34;Sprites making
+
+    Makes all used groups of sprites
+    :return: groups of sprites
+    &#34;&#34;&#34;
+    sprites = {
+        &#39;all_sprites&#39;: pygame.sprite.Group(),
+        &#39;ball_sprite&#39;: pygame.sprite.Group(),
+        &#39;block_sprite&#39;: pygame.sprite.Group()
+    }
+    return sprites</code></pre>
+</details>
+</dd>
+<dt id="arcanoid.rebound_block"><code class="name flex">
+<span>def <span class="ident">rebound_block</span></span>(<span>ball_bottom, ball_left, ball_right, ball_top, block_top, block_right, block_left, block_bottom, local_parameter, x, y)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Rebound from blocks rules</p>
+<p>Changes direction of movement of the ball if it touches a block and delete the block
+:param ball_bottom: coordinates of the bottom of the ball
+:param ball_left: coordinates of the left edge of the ball
+:param ball_right: coordinates of thr right edge of the ball
+:param ball_top: coordinates of the top of the ball
+:param block_top: coordinates of the top of the block
+:param block_right: coordinates of the right edge of the block
+:param block_left: coordinates of the left edge of the block
+:param block_bottom: coordinates of the bottom of the bloock
+:param local_parameter: is ball touched a block
+:param x: Ox axis speed of the ball
+:param y: Oy axis speed of the ball
+:return: new Ox and Oy axis speed for the ball</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rebound_block(ball_bottom, ball_left, ball_right, ball_top, block_top, block_right, block_left, block_bottom,
+                  local_parameter, x, y):
+    &#34;&#34;&#34;Rebound from blocks rules
+
+    Changes direction of movement of the ball if it touches a block and delete the block
+    :param ball_bottom: coordinates of the bottom of the ball
+    :param ball_left: coordinates of the left edge of the ball
+    :param ball_right: coordinates of thr right edge of the ball
+    :param ball_top: coordinates of the top of the ball
+    :param block_top: coordinates of the top of the block
+    :param block_right: coordinates of the right edge of the block
+    :param block_left: coordinates of the left edge of the block
+    :param block_bottom: coordinates of the bottom of the bloock
+    :param local_parameter: is ball touched a block
+    :param x: Ox axis speed of the ball
+    :param y: Oy axis speed of the ball
+    :return: new Ox and Oy axis speed for the ball
+    &#34;&#34;&#34;
+    if local_parameter:
+        a = abs(ball_bottom - block_top) % 40
+        b = abs(ball_left - block_right) % 42
+        c = abs(ball_right - block_left) % 42
+        d = abs(ball_top - block_bottom) % 40
+        m = min(a, b, c, d)
+        if not (a == 1 and b == 1) and not (a == 1 and c == 1) and not (d == 1 and b == 1) and not (
+                d == 1 and c == 1):
+            if m == a or m == d:
+                y = -y
+            elif m == b or m == c:
+                x = -x
+    return x, y</code></pre>
+</details>
+</dd>
+<dt id="arcanoid.rebound_frames"><code class="name flex">
+<span>def <span class="ident">rebound_frames</span></span>(<span>i, j, x, y, speed, is_active, default_parameters)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Rebound from frames rules</p>
+<p>Changes direction of movement of the ball if it touches one of the frames and stop the game
+if ball touched bottom frame
+:param i: Ox ball coordinate
+:param j: Oy ball coordinate
+:param x: Ox axis speed of the ball
+:param y: Oy axis speed of the ball
+:param speed: default speed of ball
+:param is_active: says if the game has to be continued
+:param default_parameters: parameters of game configuration
+:return: new Ox and Oy axis speed and answer if the game has to be continued</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rebound_frames(i, j, x, y, speed, is_active, default_parameters):
+    &#34;&#34;&#34;Rebound from frames rules
+
+    Changes direction of movement of the ball if it touches one of the frames and stop the game
+    if ball touched bottom frame
+    :param i: Ox ball coordinate
+    :param j: Oy ball coordinate
+    :param x: Ox axis speed of the ball
+    :param y: Oy axis speed of the ball
+    :param speed: default speed of ball
+    :param is_active: says if the game has to be continued
+    :param default_parameters: parameters of game configuration
+    :return: new Ox and Oy axis speed and answer if the game has to be continued
+    &#34;&#34;&#34;
+    if i &gt; default_parameters[&#39;width&#39;] - 2:
+        x = -speed
+    if i &lt; 2:
+        x = speed
+    if j &lt; 2:
+        y = speed
+    if j &gt; default_parameters[&#39;height&#39;] - 2:
+        is_active = 0
+        x = 0
+        y = 0
+    return x, y, is_active</code></pre>
+</details>
+</dd>
+<dt id="arcanoid.rebound_player"><code class="name flex">
+<span>def <span class="ident">rebound_player</span></span>(<span>speed, local_parameter, y)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Rebound from player's platform rules</p>
+<p>Changes direction of movement of the ball if it touches the player's platform
+:param speed: default speed of ball
+:param local_parameter: is ball touched the platform
+:param y: Oy axis speed of the ball
+:return: new Oy axis speed of the ball</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rebound_player(speed, local_parameter, y):
+    &#34;&#34;&#34;Rebound from player&#39;s platform rules
+
+    Changes direction of movement of the ball if it touches the player&#39;s platform
+    :param speed: default speed of ball
+    :param local_parameter: is ball touched the platform
+    :param y: Oy axis speed of the ball
+    :return: new Oy axis speed of the ball
+    &#34;&#34;&#34;
+    if local_parameter:
+        y = -speed
+    return y</code></pre>
+</details>
+</dd>
+<dt id="arcanoid.update_ball"><code class="name flex">
+<span>def <span class="ident">update_ball</span></span>(<span>self, player, default_parameters, sprites, blocks)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Updating ball location</p>
+<p>Contains rules of ball movement
+:param self: ball sprite
+:param player: player sprite
+:param default_parameters: parameters of game configuration
+:param sprites: groups of sprites
+:param blocks: list of blocks sprites</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_ball(self, player, default_parameters, sprites, blocks):
+    &#34;&#34;&#34;Updating ball location
+
+    Contains rules of ball movement
+    :param self: ball sprite
+    :param player: player sprite
+    :param default_parameters: parameters of game configuration
+    :param sprites: groups of sprites
+    :param blocks: list of blocks sprites
+    &#34;&#34;&#34;
+    global is_active
+    global speed
+    global x
+    global y
+    key = pygame.key.get_pressed()
+
+    x, y, is_active= activating(key[pygame.K_UP], key[pygame.K_DOWN], is_active, speed, x, y)
+    x, y, is_active = rebound_frames(self.rect.x, self.rect.y, x, y, speed, is_active, default_parameters)
+    self.rect.x, self.rect.y = activate_check(is_active, player.rect.x, player.rect.y, self.rect.x, self.rect.y)
+    y = rebound_player(speed, pygame.sprite.spritecollideany(player, sprites[&#39;ball_sprite&#39;]), y)
+    if self.rect.x // 42 &lt; 17 and self.rect.y // 40 &lt; 10:
+        x, y = rebound_block(self.rect.bottom, self.rect.left, self.rect.right, self.rect.top,
+                             blocks[self.rect.x // 42][self.rect.y // 40].rect.top,
+                             blocks[self.rect.x // 42][self.rect.y // 40].rect.right,
+                             blocks[self.rect.x // 42][self.rect.y // 40].rect.left,
+                             blocks[self.rect.x // 42][self.rect.y // 40].rect.bottom,
+                             pygame.sprite.spritecollide(self, sprites[&#39;block_sprite&#39;], True), x, y)
+
+    self.rect.x += x
+    self.rect.y += y</code></pre>
+</details>
+</dd>
+<dt id="arcanoid.update_player"><code class="name flex">
+<span>def <span class="ident">update_player</span></span>(<span>self, default_parameters)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Updating player's platform location</p>
+<p>:param self: player sprite
+:param default_parameters: parameters of game configuration</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_player(self, default_parameters):
+    &#34;&#34;&#34;Updating player&#39;s platform location
+
+    :param self: player sprite
+    :param default_parameters: parameters of game configuration
+    &#34;&#34;&#34;
+    self.speedx = 0
+    keye = pygame.key.get_pressed()
+    if keye[pygame.K_LEFT]:
+        self.speedx = -8
+    if keye[pygame.K_RIGHT]:
+        self.speedx = 8
+    self.rect.x += self.speedx
+    if self.rect.left &gt; default_parameters[&#39;width&#39;]:
+        self.rect.right = 0
+    if self.rect.right &lt; 0:
+        self.rect.left = default_parameters[&#39;width&#39;]</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Arcanoid</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="arcanoid.activate_check" href="#arcanoid.activate_check">activate_check</a></code></li>
+<li><code><a title="arcanoid.activating" href="#arcanoid.activating">activating</a></code></li>
+<li><code><a title="arcanoid.classes" href="#arcanoid.classes">classes</a></code></li>
+<li><code><a title="arcanoid.main" href="#arcanoid.main">main</a></code></li>
+<li><code><a title="arcanoid.main_parameters" href="#arcanoid.main_parameters">main_parameters</a></code></li>
+<li><code><a title="arcanoid.make_blocks" href="#arcanoid.make_blocks">make_blocks</a></code></li>
+<li><code><a title="arcanoid.make_sprites" href="#arcanoid.make_sprites">make_sprites</a></code></li>
+<li><code><a title="arcanoid.rebound_block" href="#arcanoid.rebound_block">rebound_block</a></code></li>
+<li><code><a title="arcanoid.rebound_frames" href="#arcanoid.rebound_frames">rebound_frames</a></code></li>
+<li><code><a title="arcanoid.rebound_player" href="#arcanoid.rebound_player">rebound_player</a></code></li>
+<li><code><a title="arcanoid.update_ball" href="#arcanoid.update_ball">update_ball</a></code></li>
+<li><code><a title="arcanoid.update_player" href="#arcanoid.update_player">update_player</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
