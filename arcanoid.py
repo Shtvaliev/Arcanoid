@@ -28,7 +28,7 @@ def update_player(self, param):
 
 
 is_active = 0
-speed = 3
+speed = 2
 x = 0
 y = 0
 
@@ -203,9 +203,6 @@ def main():
             # check for closing window
             if event.type == pygame.QUIT:
                 running = False
-
-        # if pygame.sprite.spritecollideany(player, ball_sprite):
-        #     y = -2
 
         # Обновление
         sprites['all_sprites'].update()
