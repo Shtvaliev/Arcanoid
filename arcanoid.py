@@ -14,8 +14,6 @@ def make_blocks(block):
         for j in range(10):
             blocks[i][j].rect.x = 42 * i
             blocks[i][j].rect.y = 40 * j
-    print(type(blocks))
-    print(blocks)
     return blocks
 
 
